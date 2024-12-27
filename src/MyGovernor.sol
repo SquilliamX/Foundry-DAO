@@ -22,7 +22,7 @@ import {TimelockController} from "@openzeppelin/contracts/governance/TimelockCon
 
 // MyGovernor contract inherits from multiple governance-related contracts
 contract MyGovernor is
-    Governor, // Base governance functionality, tracks all proposes
+    Governor, // Main governance functionality, tracks all proposals
     GovernorSettings, // Configurable voting delay, period, and proposal threshold
     GovernorCountingSimple, // Basic vote counting (For, Against, Abstain)
     GovernorVotes, // Links governance to a token for voting power

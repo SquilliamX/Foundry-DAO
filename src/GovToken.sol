@@ -12,17 +12,22 @@ import {ERC20Votes} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Vo
 import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 
 // from OpenZeppelin wizard, with ERC20 "voting" features turned on: https://wizard.openzeppelin.com/
-// MyToken contract inherits from three OpenZeppelin contracts:
+// GovToken contract inherits from three OpenZeppelin contracts:
 // 1. ERC20 - Basic token functionality (transfers, balances)
 // 2. ERC20Permit - Gasless approval functionality
 // 3. ERC20Votes - Governance functionality (voting power, delegation)
-contract MyToken is ERC20, ERC20Permit, ERC20Votes {
+contract GovToken is ERC20, ERC20Permit, ERC20Votes {
     // Constructor is called when the contract is deployed
     // It sets up the token with:
-    // - Name: "MyToken"
-    // - Symbol: "MTK"
+    // - Name: "GovToken"
+    // - Symbol: "GTK"
     // The constructor also initializes ERC20Permit with the token name
-    constructor() ERC20("MyToken", "MTK") ERC20Permit("MyToken") {}
+    constructor() ERC20("GovToken", "GTK") ERC20Permit("GovToken") {}
+
+    // only for testing purposes
+    function mint(address to, uint256 amount) public {
+        _mint(to, amount);
+    }
 
     // The following functions are overrides required by Solidity.
 
